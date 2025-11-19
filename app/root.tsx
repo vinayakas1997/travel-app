@@ -23,6 +23,13 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+import { registerLicense } from "@syncfusion/ej2-base";
+
+// Only register on client side
+if (typeof window !== "undefined") {
+    registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -71,5 +78,4 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
     </main>
-  );
-}
+  );}
